@@ -1,0 +1,10 @@
+.container {
+  background: #D8D9DE;
+  padding: 20px;
+  border-radius: 10px;
+} 
+
+.inverted {
+  background-color: #393B45;
+  color: #D8D9DE;
+}
