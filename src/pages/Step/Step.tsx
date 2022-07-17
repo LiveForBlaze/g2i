@@ -1,7 +1,8 @@
 import { Button, Box } from '../../components/UI';
+import { QuestionsList } from '../../services/getQuestionList/models/getQuestionsList';
 
 interface StepProps {
-  question: any;
+  question: QuestionsList;
   onAnswer: (answer: boolean) => void;
   totalQuestions: number;
   currentIndex: number;
@@ -9,9 +10,9 @@ interface StepProps {
 
 export const Step: React.FC<StepProps> = ({ question, onAnswer, totalQuestions, currentIndex }) => (
   <div>
-    <h2 data-testid="step-category">{question.category}</h2>
+    <h2 data-testid="step-category">{question?.category}</h2>
     <Box inverted>
-      <span data-testid="step-question" dangerouslySetInnerHTML={{ __html: question.question }} />
+      <span data-testid="step-question" dangerouslySetInnerHTML={{ __html: question?.question }} />
     </Box>
     <div data-testid="step-current-index">{currentIndex} of {totalQuestions}</div>
     <div>

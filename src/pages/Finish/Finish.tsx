@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Button } from "../../components/UI";
 import { QuestionsItem } from "./components/QuestionsItem";
-import { QurdtionsList } from '../../services/getQuestionList/models/getQuestionsList';
+import { QuestionsList } from '../../services/getQuestionList/models/getQuestionsList';
 
 interface FinishProps {
   onRestart: () => void;
-  data: QurdtionsList[];
+  data: QuestionsList[];
   answers: boolean[];
 }
 

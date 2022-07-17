@@ -1,4 +1,4 @@
-export interface QurdtionsList {
+export interface QuestionsList {
   category: string;
   correct_answer: string;
   difficulty: string;

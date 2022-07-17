@@ -5,18 +5,18 @@ import { Step } from './pages/Step';
 import { Finish } from './pages/Finish';
 
 import { getQuestionList } from './services/getQuestionList';
-import { QurdtionsList } from './services/getQuestionList/models/getQuestionsList';
+import { QuestionsList } from './services/getQuestionList/models/getQuestionsList';
 
 import './App.css';
 
 export const App = () => {
-  const [data, setData] = useState<QurdtionsList[]>([]);
+  const [data, setData] = useState<QuestionsList[]>([]);
   const [step, setStep] = useState<number>(0);
   const [answers, setAnswers] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const isQuizStarted = step !== 0;
-  const isQuizFinished = step === data?.length + 1;
+  const isQuizFinished = step >= data.length + 1;
 
   useEffect(() => {
     getData();
@@ -24,7 +24,8 @@ export const App = () => {
 
   const getData = () => {
     setIsLoading(true);
-    getQuestionList(() => setIsLoading(false)).then((resp) => setData(resp));
+    getQuestionList(() => setIsLoading(false))
+      .then((resp) => resp && setData(resp));
   }
 
   const handleStepChange = (answer: boolean) => {
@@ -59,13 +60,13 @@ export const App = () => {
         />
       )
     }
-    return <Home onStart={() => setStep(1)} isLoading={isLoading} />
+    return <Home onStart={() => setStep(step + 1)} isLoading={isLoading} />
   }
 
   return (
     <div className="App">
       <div className="App-container">
-        <div className="App-company">G2i code challenge:</div>
+        <div className="App-company" data-testid="app-company">G2i code challenge:</div>
         <Box width={480} className="App-content">
           {renderContent()}
         </Box>
