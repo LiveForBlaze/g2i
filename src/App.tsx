@@ -62,8 +62,6 @@ export const App = () => {
     return <Home onStart={() => setStep(1)} isLoading={isLoading} />
   }
 
-  console.log(data, step, answers);
-
   return (
     <div className="App">
       <div className="App-container">

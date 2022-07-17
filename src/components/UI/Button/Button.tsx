@@ -4,7 +4,7 @@ import styles from './Button.module.css';
 interface BoxProps extends React.HTMLAttributes<HTMLButtonElement> {
   className?: string;
   children?: React.ReactNode;
-  inverted?: Boolean;
+  inverted?: boolean;
 }
 
 export const Button: React.FC<BoxProps> = ({ children, className, inverted, ...restProps }) => {

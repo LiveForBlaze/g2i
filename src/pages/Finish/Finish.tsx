@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "../../components/UI";
-import { ListItem } from "./components/ListItem";
-
+import { QuestionsItem } from "./components/QuestionsItem";
 import { QurdtionsList } from '../../services/getQuestionList/models/getQuestionsList';
 
 interface FinishProps {
@@ -20,12 +19,15 @@ export const Finish: React.FC<FinishProps> = ({ onRestart, data, answers }) => {
   return (
     <div>
       <div>
-        {correctAnswersQuantity} / {data.length}
+        <h3>
+          You scored <br />
+          <span data-testid="finish-correct-answers">{correctAnswersQuantity} / {data.length}</span>
+        </h3>
         <ul>
-          {data.map((item, index) => <ListItem {...item} index={index} answers={answers} />)}
+          {data.map((item, index) => <QuestionsItem {...item} index={index} answers={answers} key={index} />)}
         </ul>
       </div>
-      <Button onClick={onRestart}>Play again?</Button>
+      <Button onClick={onRestart} data-testid="finish-retry-button">Play again?</Button>
     </div>
   )
 }
