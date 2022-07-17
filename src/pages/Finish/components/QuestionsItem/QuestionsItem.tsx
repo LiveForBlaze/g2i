@@ -1,8 +1,7 @@
-import { Box } from '../../../../components/UI';
-import { QurdtionsList } from "../../../../services/getQuestionList/models/getQuestionsList";
+import { QuestionsList } from "../../../../services/getQuestionList/models/getQuestionsList";
 import styles from './QuestionsItem.module.css';
 
-interface QuestionsItemProps extends QurdtionsList {
+interface QuestionsItemProps extends QuestionsList {
   answers: boolean[];
   index: number;
 }
